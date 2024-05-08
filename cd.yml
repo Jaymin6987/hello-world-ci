@@ -1,0 +1,23 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    # Add any necessary steps to prepare for deployment (e.g., install dependencies, build artifacts)
+    
+    - name: Deploy to Production
+      run: |
+        # Add deployment script or commands here
+        echo "Deploying to production..."
+        # Example: copying files to a server
+        scp -r . user@production-server:/path/to/deploy
